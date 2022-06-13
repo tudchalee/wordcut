@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    Input
+    <input type="text" id="txt"> 
+    <input type="button" value="Find" onclick="getTxt()">
+</form>
+<span id="name"></span>
+</body>
+<script>
+    function getTxt() {
+        const dict = ["cat", "dog", "bird", "ant", "run"];
+        var txt = document.getElementById("txt").value;
+        var newtxt = txt.replace(/[ ,.]/g,'')
+        console.log(newtxt );
+        const result = dict.filter(word => {
+            if(newtxt.indexOf(word) !== -1){
+                return true;
+            }
+            return false;
+        })
+        document.getElementById("name").innerHTML = result;
+    }
+</script>
+</html>
